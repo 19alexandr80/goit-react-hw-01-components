@@ -1,30 +1,41 @@
 import PropTypes from 'prop-types';
+import {
+    UserProfile,
+    UserAvatar,
+    UserStats,
+    UserName,
+    UserTag,
+    UserLocation,
+    UserLabel,
+    UserQuantity,
+} from './usercard.styled';
+
 export const App = props => {
     const { avatar, name, tag, location, followers, views, likes } = props;
     return (
-        <div className="profile">
+        <UserProfile>
             <div className="description">
-                <img src={avatar} alt="User avatar" className="avatar" />
-                <p className="name">{name}</p>
-                <p className="tag">{tag}</p>
-                <p className="location">{location}</p>
+                <UserAvatar src={avatar} alt="User avatar" />
+                <UserName>{name}</UserName>
+                <UserTag>{tag}</UserTag>
+                <UserLocation>{location}</UserLocation>
             </div>
 
-            <ul className="stats">
+            <UserStats>
                 <li>
-                    <span className="label">Followers</span>
-                    <span className="quantity">{followers}</span>
+                    <UserLabel>Followers</UserLabel>
+                    <UserQuantity>{followers}</UserQuantity>
                 </li>
                 <li>
-                    <span className="label">Views</span>
-                    <span className="quantity">{views}</span>
+                    <UserLabel>Views</UserLabel>
+                    <UserQuantity>{views}</UserQuantity>
                 </li>
                 <li>
-                    <span className="label">Likes</span>
-                    <span className="quantity">{likes}</span>
+                    <UserLabel>Likes</UserLabel>
+                    <UserQuantity>{likes}</UserQuantity>
                 </li>
-            </ul>
-        </div>
+            </UserStats>
+        </UserProfile>
     );
 };
 App.propTypes = {
