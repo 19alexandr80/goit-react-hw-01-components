@@ -8,7 +8,7 @@ import {
     UserLocation,
     UserLabel,
     UserQuantity,
-} from './usercard.styled';
+} from 'components/usercard/usercard.styled';
 
 export const Profile = ({ avatar, name, tag, location, stats }) => {
     return (
