@@ -1,29 +1,20 @@
 import PropTypes from 'prop-types';
-import defauilImg from 'defaultimq.png';
-import {
-    TitleFriends,
-    AvatarFriends,
-    NameFriends,
-    StatusFriend,
-    FriendsList,
-} from './friends.styled';
+import { FriendListItem } from 'components/friends/FriendListItem';
+import { TitleFriends, FriendsList } from './friends.styled';
 
-export const Friends = ({ prop }) => {
+export const Friends = ({ friends }) => {
     return (
         <section>
             <TitleFriends>Friends</TitleFriends>
             <FriendsList>
-                {prop.map(({ avatar, name, isOnline, id }) => {
+                {friends.map(({ avatar, name, isOnline, id }) => {
                     return (
-                        <li key={id}>
-                            <StatusFriend isOnline={isOnline}></StatusFriend>
-                            <AvatarFriends
-                                src={avatar ?? defauilImg}
-                                alt=""
-                                width="48"
-                            />
-                            <NameFriends>{name}</NameFriends>
-                        </li>
+                        <FriendListItem
+                            key={id}
+                            isOnline={isOnline}
+                            avatar={avatar}
+                            name={name}
+                        />
                     );
                 })}
             </FriendsList>
@@ -31,12 +22,9 @@ export const Friends = ({ prop }) => {
     );
 };
 Friends.propTypes = {
-    prop: PropTypes.arrayOf(
-        PropTypes.exact({
+    friends: PropTypes.arrayOf(
+        PropTypes.shape({
             id: PropTypes.number.isRequired,
-            avatar: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            isOnline: PropTypes.bool.isRequired,
-        })
+        }).isRequired
     ).isRequired,
 };

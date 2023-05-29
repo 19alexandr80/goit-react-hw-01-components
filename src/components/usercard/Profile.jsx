@@ -10,40 +10,40 @@ import {
     UserQuantity,
 } from './usercard.styled';
 
-export const App = props => {
-    const { avatar, name, tag, location, followers, views, likes } = props;
+export const Profile = ({ avatar, name, tag, location, stats }) => {
     return (
         <UserProfile>
-            <div className="description">
+            <div>
                 <UserAvatar src={avatar} alt="User avatar" />
                 <UserName>{name}</UserName>
                 <UserTag>{tag}</UserTag>
                 <UserLocation>{location}</UserLocation>
             </div>
-
             <UserStats>
                 <li>
                     <UserLabel>Followers</UserLabel>
-                    <UserQuantity>{followers}</UserQuantity>
+                    <UserQuantity>{stats.followers}</UserQuantity>
                 </li>
                 <li>
                     <UserLabel>Views</UserLabel>
-                    <UserQuantity>{views}</UserQuantity>
+                    <UserQuantity>{stats.views}</UserQuantity>
                 </li>
                 <li>
                     <UserLabel>Likes</UserLabel>
-                    <UserQuantity>{likes}</UserQuantity>
+                    <UserQuantity>{stats.likes}</UserQuantity>
                 </li>
             </UserStats>
         </UserProfile>
     );
 };
-App.propTypes = {
+Profile.propTypes = {
     avatar: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
+    stats: PropTypes.exact({
+        followers: PropTypes.number.isRequired,
+        views: PropTypes.number.isRequired,
+        likes: PropTypes.number.isRequired,
+    }).isRequired,
 };
