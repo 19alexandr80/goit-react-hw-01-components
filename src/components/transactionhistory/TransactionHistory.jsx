@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {
     Transaction,
     TitleTransaction,
-} from 'components/transactionhistory/TransactionHistory.styled';
+} from 'components/transactionhistory/TransactionHistoryStyle.styled';
 export const TransactionHistory = ({ items }) => {
     return (
         <section>

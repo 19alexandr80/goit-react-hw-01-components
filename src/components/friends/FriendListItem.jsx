@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
-import { AvatarFriends, NameFriends, StatusFriend } from './Friends.styled';
+import {
+    AvatarFriends,
+    NameFriends,
+    StatusFriend,
+} from './FriendsStyle.styled';
 import defaultImg from 'defaultimq.png';
 
 export const FriendListItem = ({ isOnline, avatar, name }) => {
