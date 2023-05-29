@@ -10,7 +10,7 @@ import transactionsData from 'data/transactions.json';
 
 export const App = () => {
     return (
-        <section>
+        <div>
             <Profile
                 name={userData.username}
                 tag={userData.tag}
@@ -21,6 +21,6 @@ export const App = () => {
             <Statistics stats={dataStat} />
             <Friends friends={friendsData} />
             <TransactionHistory items={transactionsData} />
-        </section>
+        </div>
     );
 };
