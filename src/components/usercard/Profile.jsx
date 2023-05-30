@@ -10,7 +10,13 @@ import {
     UserQuantity,
 } from 'components/usercard/usercard.styled';
 
-export const Profile = ({ avatar, name, tag, location, stats }) => {
+export const Profile = ({
+    avatar,
+    name,
+    tag,
+    location,
+    stats: { followers, views, likes },
+}) => {
     return (
         <UserProfile>
             <div>
@@ -22,15 +28,15 @@ export const Profile = ({ avatar, name, tag, location, stats }) => {
             <UserStats>
                 <li>
                     <UserLabel>Followers</UserLabel>
-                    <UserQuantity>{stats.followers}</UserQuantity>
+                    <UserQuantity>{followers}</UserQuantity>
                 </li>
                 <li>
                     <UserLabel>Views</UserLabel>
-                    <UserQuantity>{stats.views}</UserQuantity>
+                    <UserQuantity>{views}</UserQuantity>
                 </li>
                 <li>
                     <UserLabel>Likes</UserLabel>
-                    <UserQuantity>{stats.likes}</UserQuantity>
+                    <UserQuantity>{likes}</UserQuantity>
                 </li>
             </UserStats>
         </UserProfile>
